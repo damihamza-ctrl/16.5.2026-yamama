@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Moodboard — 16.05.2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --cream-white: #FAF8F5;
+            --warm-ivory: #F5F0E8;
+            --soft-beige: #EDE5D8;
+            --sand-light: #E5D9C8;
+            --beige-warm: #D9CBB8;
+            --taupe-light: #C4B5A0;
+            --sand-medium: #B8A890;
+            --taupe-medium: #A08B75;
+            --beige-deep: #8B7355;
+            --warm-brown: #6B5344;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            background-color: var(--cream-white);
+            color: var(--warm-brown);
+            overflow-x: hidden;
+        }
+
+        /* Hero Section with Gradient */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(180deg, 
+                var(--cream-white) 0%, 
+                var(--warm-ivory) 25%, 
+                var(--soft-beige) 50%, 
+                var(--sand-light) 75%, 
+                var(--beige-warm) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, 
+                rgba(233,203,184,0.3) 0%, 
+                transparent 50%, 
+                rgba(196,181,160,0.3) 100%);
+            animation: shimmer 8s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 0.8; }
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 1;
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 300;
+            letter-spacing: 0.2em;
+            margin-bottom: 1rem;
+            color: var(--warm-brown);
+            text-shadow: 2px 2px 4px rgba(139,115,85,0.1);
+        }
+
+        .date-display {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            font-weight: 300;
+            letter-spacing: 0.5em;
+            color: var(--taupe-medium);
+            margin: 2rem 0;
+            position: relative;
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(90deg, transparent, rgba(212,203,184,0.3), transparent);
+        }
+
+        .date-display::before,
+        .date-display::after {
+            content: '◆';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--taupe-light);
+            font-size: 0.6rem;
+        }
+
+        .date-display::before {
+            left: 0.5rem;
+        }
+
+        .date-display::after {
+            right: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--beige-deep);
+            margin-top: 1rem;
+            letter-spacing: 0.15em;
+        }
+
+        /* Color Palette Section with Degradations */
+        .palette-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(to bottom, 
+                var(--warm-ivory) 0%, 
+                var(--soft-beige) 50%, 
+                var(--sand-light) 100%);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.15em;
+            color: var(--warm-brown);
+        }
+
+        .palette-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--taupe-medium);
+            margin-bottom: 3rem;
+            font-style: italic;
+            letter-spacing: 0.1em;
+        }
+
+        .palette-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .color-card {
+            flex: 1;
+            min-width: 120px;
+            max-width: 160px;
+            text-align: center;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .color-card:hover {
+            transform: translateY(-15px);
+        }
+
+        .color-swatch {
+            width: 100%;
+            height: 180px;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(107,83,68,0.15);
+            transition: all 0.4s ease;
+        }
+
+        /* Gradient Swatches */
+        .gradient-1 { background: linear-gradient(180deg, #FAF8F5 0%, #F5F0E8 100%); }
+        .gradient-2 { background: linear-gradient(180deg, #F5F0E8 0%, #EDE5D8 100%); }
+        .gradient-3 { background: linear-gradient(180deg, #EDE5D8 0%, #E5D9C8 100%); }
+        .gradient-4 { background: linear-gradient(180deg, #E5D9C8 0%, #D9CBB8 100%); }
+        .gradient-5 { background: linear-gradient(180deg, #D9CBB8 0%, #C4B5A0 100%); }
+        .gradient-6 { background: linear-gradient(180deg, #C4B5A0 0%, #B8A890 100%); }
+        .gradient-7 { background: linear-gradient(180deg, #B8A890 0%, #A08B75 100%); }
+        .gradient-8 { background: linear-gradient(180deg, #A08B75 0%, #8B7355 100%); }
+
+        .color-card:hover .color-swatch {
+            box-shadow: 0 25px 50px rgba(107,83,68,0.25);
+            transform: scale(1.05);
+        }
+
+        .color-swatch::after {
+            content: 'Copy';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255,255,255,0.9);
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+            color: var(--warm-brown);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .color-card:hover .color-swatch::after {
+            opacity: 1;
+        }
+
+        .color-name {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            color: var(--warm-brown);
+            letter-spacing: 0.05em;
+        }
+
+        .color-hex {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem;
+            color: var(--taupe-medium);
+            letter-spacing: 0.05em;
+        }
+
+        /* Degradation Label */
+        .degrade-label {
+            font-size: 0.75rem;
+            color: var(--taupe-light);
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+
+        /* Moodboard Grid */
+        .moodboard-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(to bottom, 
+                var(--sand-light) 0%, 
+                var(--beige-warm) 100%);
+        }
+
+        .masonry-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            column-count: 3;
+            column-gap: 1.5rem;
+        }
+
+        @media (max-width: 968px) {
+            .masonry-grid {
+                column-count: 2;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .masonry-grid {
+                column-count: 1;
+            }
+        }
+
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+            position: relative;
+            overflow: hidden;
+            border-radius: 4px;
+            background: linear-gradient(180deg, var(--soft-beige), var(--sand-light));
+            box-shadow: 0 10px 30px rgba(107,83,68,0.1);
+            transition: all 0.5s ease;
+        }
+
+        .masonry-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(107,83,68,0.2);
+        }
+
+        .masonry-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            filter: sepia(8%) contrast(98%) saturate(92%);
+            transition: all 0.5s ease;
+        }
+
+        .masonry-item:hover img {
+            filter: sepia(0%) contrast(102%) saturate(100%);
+        }
+
+        .image-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, 
+                rgba(107,83,68,0.9) 0%, 
+                rgba(107,83,68,0.6) 50%,
+                transparent 100%);
+            color: var(--cream-white);
+            padding: 3rem 1.5rem 1.5rem;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 0.15em;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.5s ease;
+        }
+
+        .masonry-item:hover .image-caption {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Footer with Gradient */
+        .footer {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, 
+                var(--beige-warm) 0%, 
+                var(--taupe-light) 25%,
+                var(--sand-medium) 50%,
+                var(--taupe-medium) 75%,
+                var(--beige-deep) 100%);
+            color: var(--cream-white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(45deg, transparent 48%, rgba(255,255,255,0.05) 50%, transparent 52%),
+                linear-gradient(-45deg, transparent 48%, rgba(255,255,255,0.05) 50%, transparent 52%);
+            background-size: 60px 60px;
+            opacity: 0.5;
+        }
+
+        .footer-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-date {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            letter-spacing: 0.4em;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .footer-line {
+            width: 100px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--cream-white), transparent);
+            margin: 1.5rem auto;
+        }
+
+        .footer-text {
+            font-size: 1.4rem;
+            font-style: italic;
+            opacity: 0.9;
+            letter-spacing: 0.1em;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: linear-gradient(135deg, var(--taupe-medium), var(--beige-deep));
+            color: var(--cream-white);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+            box-shadow: 0 15px 40px rgba(107,83,68,0.3);
+            opacity: 0;
+            transition: all 0.4s ease;
+            z-index: 1000;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        /* Decorative Elements */
+        .deco-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(196,181,160,0.2) 0%, transparent 70%);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .deco-circle:nth-child(1) {
+            width: 400px;
+            height: 400px;
+            top: -200px;
+            right: -100px;
+            animation-delay: 0s;
+        }
+
+        .deco-circle:nth-child(2) {
+            width: 300px;
+            height: 300px;
+            bottom: -150px;
+            left: -100px;
+            animation-delay: 5s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(30px, -30px) scale(1.1); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="deco-circle"></div>
+        <div class="deco-circle"></div>
+        <div class="hero-content">
+            <h1>The Moodboard</h1>
+            <div class="date-display">16 . 05 . 2026</div>
+            <p class="subtitle">Elegance in Every Tone</p>
+        </div>
+    </section>
+
+    <!-- Color Palette Section -->
+    <section class="palette-section">
+        <h2 class="section-title fade-in">Beige Harmonie</h2>
+        <p class="palette-subtitle fade-in">Dégradations de tons chauds et neutres</p>
+        
+        <div class="palette-container">
+            <div class="color-card fade-in" onclick="copyColor('#FAF8F5')">
+                <div class="color-swatch gradient-1"></div>
+                <div class="color-name">Crème Pure</div>
+                <div class="color-hex">#FAF8F5</div>
+                <div class="degrade-label">→ Ivoire Chaud</div>
+            </div>
+            <div class="color-card fade-in" onclick="copyColor('#F5F0E8')">
+                <div class="color-swatch gradient-2"></div>
+                <div class="color-name">Ivoire Chaud</div>
+                <div class="color-hex">#F5F0E8</div>
+                <div class="degrade-label">→ Beige Doux</div>
+            </div>
+            <div class="color-card fade-in" onclick="copyColor('#EDE5D8')">
+                <div class="color-swatch gradient-3"></div>
+                <div class="color-name">Beige Doux</div>
+                <div class="color-hex">#EDE5D8</div>
+                <div class="degrade-label">→ Sable Clair</div>
+            </div>
+            <div class="color-card fade-in" onclick="copyColor('#E5D9C8')">
+                <div class="color-swatch gradient-4"></div>
+                <div class="color-name">Sable Clair</div>
+                <div class="color-hex">#E5D9C8</div>
+                <div class="degrade-label">→ Beige Chaud</div>
+            </div>
+            <div class="color-card fade-in" onclick="copyColor('#D9CBB8')">
+                <div class="color-swatch gradient-5"></div>
+                <div class="color-name">Beige Chaud</div>
+                <div class="color-hex">#D9CBB8</div>
+                <div class="degrade-label">→ Taupe Clair</div>
+            </div>
+            <div class="color-card fade-in" onclick="copyColor('#C4B5A0')">
+                <div class="color-swatch gradient-6"></div>
+                <div class="color-name">Taupe Clair</div>
+                <div class="color-hex">#C4B5A0</div>
+                <div class="degrade-label">→ Sable Moyen</div>
+            </div>
+            <div class="color-card fade-in" onclick="copyColor('#B8A890')">
+                <div class="color-swatch gradient-7"></div>
+                <div class="color-name">Sable Moyen</div>
+                <div class="color-hex">#B8A890</div>
+                <div class="degrade-label">→ Taupe Moyen</div>
+            </div>
+            <div class="color-card fade-in" onclick="copyColor('#A08B75')">
+                <div class="color-swatch gradient-8"></div>
+                <div class="color-name">Taupe Moyen</div>
+                <div class="color-hex">#A08B75</div>
+                <div class="degrade-label">→ Beige Profond</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Moodboard Grid -->
+    <section class="moodboard-section">
+        <h2 class="section-title fade-in">Moments Capturés</h2>
+        <div class="masonry-grid">
+            <div class="masonry-item fade-in">
+                <img src="https://imgur.com/o5otyFL.jpg" alt="Moment 1">
+                <div class="image-caption">Lumière Douce</div>
+            </div>
+            <div class="masonry-item fade-in">
+                <img src="https://imgur.com/7eCMMxw.jpg" alt="Moment 2">
+                <div class="image-caption">Élégance Naturelle</div>
+            </div>
+            <div class="masonry-item fade-in">
+                <img src="https://imgur.com/bkHl4Rv.jpg" alt="Moment 3">
+                <div class="image-caption">Pureté</div>
+            </div>
+            <div class="masonry-item fade-in">
+                <img src="https://imgur.com/Lv7E4wn.jpg" alt="Moment 4">
+                <div class="image-caption">Sérénité</div>
+            </div>
+            <div class="masonry-item fade-in">
+                <img src="https://imgur.com/eXy2cPI.jpg" alt="Moment 5">
+                <div class="image-caption">Tons Chauds</div>
+            </div>
+            <div class="masonry-item fade-in">
+                <img src="https://imgur.com/o6m3t7C.jpg" alt="Moment 6">
+                <div class="image-caption">Délicatesse</div>
+            </div>
+            <div class="masonry-item fade-in">
+                <img src="https://imgur.com/xQXtl6f.jpg" alt="Moment 7">
+                <div class="image-caption">Harmonie</div>
+            </div>
+            <div class="masonry-item fade-in">
+                <img src="https://imgur.com/LSsMwjI.jpg" alt="Moment 8">
+                <div class="image-caption">Intimité</div>
+            </div>
+            <div class="masonry-item fade-in">
+                <img src="https://imgur.com/ScJgeBy.jpg" alt="Moment 9">
+                <div class="image-caption">Reflets</div>
+            </div>
+            <div class="masonry-item fade-in">
+                <img src="https://imgur.com/k5someM.jpg" alt="Moment 10">
+                <div class="image-caption">Simplicité</div>
+            </div>
+            <div class="masonry-item fade-in">
+                <img src="https://imgur.com/t1Qna2K.jpg" alt="Moment 11">
+                <div class="image-caption">Éternité</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-date">16 . 05 . 2026</div>
+            <div class="footer-line"></div>
+            <div class="footer-text">Une Célébration de la Beauté Naturelle</div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">Couleur copiée !</div>
+
+    <script>
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Copy color functionality
+        function copyColor(hex) {
+            navigator.clipboard.writeText(hex).then(() => {
+                showToast(`Couleur ${hex} copiée !`);
+            });
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2000);
+        }
+
+        // Smooth scroll behavior
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
